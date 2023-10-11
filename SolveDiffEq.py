@@ -3,8 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
 
-plt.clf()
-
 def SIR(variables, t):
     #Introduces the variables, Living, Zombie, and Deceased
     #D is not needed bit we include it for clarity, as we use its initial condition
@@ -27,15 +25,15 @@ def SIR(variables, t):
 initial_conditions = [199, 1, 0]
 
 # Define time points
-t = np.linspace(0, 10, 100)
+t = np.linspace(0, 0.15, 100)
 
 # Solve the equations
 solution = odeint(SIR, initial_conditions, t)
 
 # Plot the results
-plt.plot(t, solution[:, 0], label='Living')
-plt.plot(t, solution[:, 1], label='Zombie')
-plt.plot(t, solution[:, 2], label='Deceased')
+plt.plot(t, solution[:, 0], label='Living', color='g')
+plt.plot(t, solution[:, 1], label='Zombie', color='r')
+plt.plot(t, solution[:, 2], label='Deceased', color='black')
 plt.xlabel('Time')
 plt.ylabel('Population ')
 plt.legend()
